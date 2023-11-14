@@ -20,3 +20,11 @@ def index():
                             # flask when you return a dictionary if all 
                             # #the fields are compatible with JSON, 
                             # it will be automatically converted into JSON for you.
+@app.get('/aboutme')
+def aboutme():
+    return {
+        "first_name": "Jason",
+        "last_name": "Ramirez",
+        "hobbies": "Playing video games",
+        "is_active": True
+    }
