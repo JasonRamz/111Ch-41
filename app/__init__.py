@@ -7,23 +7,21 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.get('/')                           # Flask decoreate to map routes to view functions
+@app.route('/')                           # Flask decoreate to map routes to view functions
 
 def main():
     return "Dr.Rafael is the best!!!"
 
 
-@app.get('/aboutme')                           # Flask decoreate to map routes to view functions
+@app.route('/aboutme')                           # Flask decoreate to map routes to view functions
                                         # our function in flask is a view function
                                         # python dictionary .Dictionaries are key-value pairs.
-def index():
-    me ={
-        "first_name": "Jason",
-        "last_name": "Ramirez",
-        "hobbies": "Playing video games",
-        "is_active": True
-    }
-    return me
+def intro():
+    me =["First Name: Jason Ramirez", "Last Name: Ramirez", "Hobbies:  Playing video games", "is_active: True"]
+    bullet_list = "".join(
+        "<li>%s</li>" %intro for intro in me
+    )
+    return "<ul>%s</ul>" % bullet_list
 
                             
                             # flask when you return a dictionary if all 
